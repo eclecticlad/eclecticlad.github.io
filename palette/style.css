@@ -1,0 +1,54 @@
+/*** ***/
+body {
+  margin:0;
+  padding:0;
+  text-align:center;
+  background-color: #fcfbf9;
+}
+
+.colourBox {
+  width: 35px;
+  height: 35px;
+  float: left;
+  cursor: pointer;
+  border-radius: 50%;
+  margin-left: -5px;
+
+}
+
+.whiteBox {
+  -moz-box-shadow: inset 0 1px 1px #777777;
+  -webkit-box-shadow: inset 0 1px 1px #777777;
+  box-shadow: inset 0 0 1px 1px #777777;
+}
+
+.colourCollection {
+  float: left;
+  margin: 5px;
+}
+
+.paletteBox {
+  display: inline-block;
+  text-align: left;
+}
+
+.paletteHolder {
+  margin:16px;
+  margin-top:5px;
+}
+
+.paletteBox h6 {
+  margin-left:16px;
+  font-weight:bold;
+  margin-bottom:0;
+}
+
+.demo-card-square.mdl-card {
+  width: 320px;
+  height: 125px;
+  min-height: 120px !important;
+  float:left;
+  margin-right: 6px;
+  margin-bottom: 6px;
+  background-color: #fcfbf9;
+}
