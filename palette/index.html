@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+  <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+  <script src="https://www.jsviews.com/download/jsrender.min.js"></script>
+  <link href="https://www.jsviews.com/samples/samples.css" rel="stylesheet" />
+  <link rel="stylesheet" type="text/css" href="style.css">
+  <link rel="stylesheet" href="https://code.getmdl.io/1.3.0/material.indigo-pink.min.css">
+  <script defer src="https://code.getmdl.io/1.3.0/material.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.0/clipboard.min.js"></script>
+</head>
+<body>
+  <h1>Colour Palette</h1>
+
+  <hr>
+  <div id="result" style=""></div>
+  <script>
+      var clipboard = new ClipboardJS('.colourBox');
+  </script>
+
+<script id="theTmpl" type="text/x-jsrender">
+  <div class='demo-card-square paletteBox mdl-card mdl-shadow--2dp'>
+      <h6>{{:pname}}</h6>
+      <div class='paletteHolder'>
+        {{for colours}}
+          <div class='colourBox' data-clipboard-text='#{{:}}' style='background-color:#{{:}};'></div>
+        {{/for}}
+      </div>
+  </div>
+</script>
+
+<script>
+var data = [
+  {
+    "pname": "Eraser",
+    "colours": ["3fb3a9", "e95c88"]
+  },
+  {
+    "pname": "Bee Danger",
+    "colours": ["f0d21b", "111111"]
+  },
+  {
+    "pname": "Glitters In Gold",
+    "colours": ["b3931a", "ffffff", "000000"]
+  },
+  {
+    "pname": "New York",
+    "colours": ["ffd004", "dda80e", "9e9694", "3a332d"]
+  },
+  {
+    "pname": "Siren",
+    "colours": ["4EA2E0", "A0DCEA", "304A75", "132F5C"]
+  },
+  {
+    "pname": "Quirk",
+    "colours": ["e2a32b", "025447", "ff8282"]
+  },
+  {
+    "pname": "Summer Lollipop",
+    "colours": ["f95e27", "fabb30", "00ccd2"]
+  },
+  {
+    "pname": "Pastel Rainbow",
+    "colours": ["f4b585", "fff79b", "cfe09d", "8ecaca", "919ccc", "efa4c9"]
+  },
+  {
+    "pname": "Modern Rainbow",
+    "colours": ["ffba00", "ff7729", "ff256d", "9f5cda", "00d4c6"]
+  },
+  {
+    "pname": "Another Nice Rainbow",
+    "colours": ["9cb22b", "548b38", "357539", "3f90ce", "454e84", "58467a", "cd5b8a", "d64234", "dd4e33", "f78a2b", "f79d25"]
+  },
+  {
+    "pname": "70s Caravan",
+    "colours": ["38bec7", "ffffff", "f6a286"]
+  },
+  {
+    "pname": "Polish Red",
+    "colours": ["f06162", "ea5858", "4e1e34"]
+  },
+  {
+    "pname": "CBrand 2019",
+    "colours": ["121160", "49d9f8", "607AE3"]
+  },
+  {
+    "pname": "Four Bubbles",
+    "colours": ["FF2E1F", "F8A20D", "735EA0", "0DBBA1"]
+  },
+  {
+    "pname": "Plutus",
+    "colours": ["BDA68E", "0C4C8A", "252525"]
+  },
+  {
+    "pname": "Mangonada Sour Ale",
+    "colours": ["4f0d03", "febe00", "76edff", "ff360f"]
+  },
+  {
+    "pname": "Grass and Sky Tones",
+    "colours": ["91CFA0", "335D2B", "9BBD54", "5D9E4C", "71D3E0", "A7DCC9"]
+  },
+  {
+    "pname": "Brass Onion",
+    "colours": ["0b4ca3", "ac8c4b", "f3ede9"]
+  },
+  {
+    "pname": "Modern B",
+    "colours": ["42c6e7", "59f7de", "6384c6", "8463ad"]
+  },
+  {
+    "pname": "Orange Accent Set",
+    "colours": ["808080", "ffffff", "1e1e1e", "ff960a"]
+  },
+  {
+    "pname": "Kansas City",
+    "colours": ["282828", "db2026", "f3e9d8"]
+  },
+  {
+    "pname": "Pris",
+    "colours": ["ffffb5", "1b9e90"]
+  },
+  {
+    "pname": "Lumin",
+    "colours": ["b4e3dc", "a1d1b1", "d4a847"]
+  },
+  {
+    "pname": "Murcia",
+    "colours": ["cf4520", "ff9438", "ffffff", "ffcc52", "315470"]
+  },
+  {
+    "pname": "Warm Bank",
+    "colours": ["1e3f63", "307fe2", "ffffff", "5bd0e6", "fee194"]
+  },
+  {
+    "pname": "Awaiting name",
+    "colours": ["264445", "2f8475", "ffffff", "93da49", "fddb27"]
+  },
+  {
+    "pname": "Warm Steel",
+    "colours": ["faaa17", "adddac3", "797a79", "a5a3a4", "c9cacc"]
+  },
+  {
+    "pname": "Modern India",
+    "colours": ["5d3593", "a9ca3a", "07ace6", "ec3726", "f7eb01"]
+  },
+  {
+    "pname": "Mocha Cafe",
+    "colours": ["3f4443", "dd974a", "f8f1e0", "df613f"]
+  },
+  {
+    "pname": "Traffic",
+    "colours": ["212322", "eff0f1", "969797", "ffe033"]
+  },
+  {
+    "pname": "Awaiting name",
+    "colours": ["f3efe9", "d1bcd6", "9e7e99", "3b424b", "d3a537"]
+  },
+  {
+    "pname": "Bare Forest",
+    "colours": ["e3d3c4", "bd8d7d", "7c9364", "495941", "061101"]
+  },
+  {
+    "pname": "Luxury Combo",
+    "colours": ["02465e", "c2a980"]
+  },
+  {
+    "pname": "Day At The Beach",
+    "colours": ["71c5ea", "d3f5f2", "f8f9ef", "7196b1", "f9df82"]
+  },
+  {
+    "pname": "Bank Aesthetic",
+    "colours": ["002b58", "477dfb", "76d1fc"]
+  },
+  {
+    "pname": "FindTravel",
+    "colours": ["4ea2e0", "3f76ab", "304a75"]
+  },
+  {
+    "pname": "Luxury light blue",
+    "colours": ["64CCC9"]
+  },
+  {
+    "pname": "Luxury Orange",
+    "colours": ["FD5E0F"]
+  },
+  {
+    "pname": "Yellow-Black Combo",
+    "colours": ["ffb82d", "ff881b", "666666", "000"]
+  },
+  {
+    "pname": "Red-Black",
+    "colours": ["c32718", "070707", "111111", "444444"]
+  },
+  {
+    "pname": "SG",
+    "colours": ["002d54", "00437e", "0065bd", "d9effc", "727272"]
+  }
+];
+
+var template = $.templates("#theTmpl");
+
+var htmlOutput = template.render(data);
+
+$("#result").html(htmlOutput);
+</script>
+
+</body>
+</html>
